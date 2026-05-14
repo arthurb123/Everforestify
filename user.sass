@@ -13,6 +13,7 @@
 @use 'repeatadd'
 @use 'rightbar'
 @use 'rootlist'
+@use 'scrollbar'
 @use 'save'
 @use 'search'
 @use 'settings'
@@ -38,13 +39,21 @@
 div[data-testid="infinite-scroll-list"] hr
 	display: none
 
-// Make scrollbar transparent
-.os-scrollbar
-	opacity: 0 !important
-
 // Don't show top bar backgrounds
 .main-topBar-background
+	--background-base: var(--spice-main) !important
+	--background-elevated-base: var(--spice-main) !important
+	background: var(--spice-main) !important
 	background-color: var(--spice-main) !important
+	background-image: none !important
+
+// Dark wash layer inside .main-topBar-background (not the same as Root__main-view-overlay)
+.main-topBar-overlay
+	background: transparent !important
+	background-color: transparent !important
+	background-image: none !important
+	opacity: 0 !important
+	pointer-events: none !important
 
 // Change reading prompt background
 div[aria-label="Already added"] > div

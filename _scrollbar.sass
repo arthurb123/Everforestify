@@ -1,0 +1,46 @@
+// Scrollbars: Spotify uses OverlayScrollbars — thickness is the .os-scrollbar-{axis}
+// element. Targeting only .os-scrollbar-handle under .os-host-transition misses real DOM.
+
+.os-scrollbar.os-scrollbar-vertical
+	width: 4px !important
+	min-width: 4px !important
+	max-width: 4px !important
+
+.os-scrollbar.os-scrollbar-horizontal
+	height: 4px !important
+	min-height: 4px !important
+	max-height: 4px !important
+
+.os-scrollbar-track
+	border: none !important
+
+.os-scrollbar-handle
+	border-radius: 4px !important
+	background-color: var(--spice-button-disabled) !important
+
+.os-scrollbar-handle:hover,
+.os-scrollbar:hover .os-scrollbar-handle
+	background-color: var(--spice-selected-row) !important
+
+// Native scrollbars where Chromium still paints them (WebKit)
+[data-overlayscrollbars-viewport]::-webkit-scrollbar
+	width: 4px
+	height: 4px
+
+[data-overlayscrollbars-viewport]::-webkit-scrollbar-thumb
+	background-color: var(--spice-button-disabled)
+	border-radius: 4px
+
+[data-overlayscrollbars-viewport]::-webkit-scrollbar-track
+	background: transparent
+
+.Root__main-view *::-webkit-scrollbar
+	width: 4px
+	height: 4px
+
+.Root__main-view *::-webkit-scrollbar-thumb
+	background-color: var(--spice-button-disabled)
+	border-radius: 4px
+
+.Root__main-view *::-webkit-scrollbar-track
+	background: transparent

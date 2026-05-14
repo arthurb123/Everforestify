@@ -2,6 +2,42 @@
 .main-globalNav-historyButtons .main-globalNav-icon:disabled
 	opacity: 0 !important
 
+// Top bar chrome: palette + kill dark wash/shadow; keep transitions so scroll fade still works
+header.main-topBar-container
+	--background-base: var(--spice-main) !important
+	--background-elevated-base: var(--spice-main) !important
+	background: var(--spice-main) !important
+	background-color: var(--spice-main) !important
+	background-image: none !important
+	box-shadow: none !important
+	-webkit-box-shadow: none !important
+	backdrop-filter: none !important
+	-webkit-backdrop-filter: none !important
+	border: none !important
+
+// Top bar: Spotify sets --background-base inline on .main-topBar-background (album art color).
+// Must override with !important; .main-topBar-overlay sits on top and can read as “wrong” fill.
+header.main-topBar-container .main-topBar-background,
+[data-testid="topbar"] .main-topBar-background
+	--background-base: var(--spice-main) !important
+	--background-elevated-base: var(--spice-main) !important
+	background: var(--spice-main) !important
+	background-color: var(--spice-main) !important
+	background-image: none !important
+
+header.main-topBar-container .main-topBar-overlay,
+[data-testid="topbar"] .main-topBar-overlay
+	background: transparent !important
+	background-color: transparent !important
+	background-image: none !important
+	opacity: 0 !important
+	pointer-events: none !important
+
+header.main-topBar-container::before,
+header.main-topBar-container::after
+	content: none !important
+	display: none !important
+
 // Optical size matching
 // History buttons, avatar, notifs and friends
 .main-topBar-button,

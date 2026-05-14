@@ -6,13 +6,18 @@
 // ... cover art
 div.cover-art.shadow
 	box-shadow: none
-// ... playlists
+// Sticky play/shuffle row (main + playlist layouts use different class names)
+.main-actionBarBackground-background,
+.playlist-playlist-actionBarBackground-background
+	background-image: none !important
+	background-color: var(--spice-main) !important
+// Entity header (keep flat; avoids odd default washes)
 .main-entityHeader-overlay
-	background: none
-.main-actionBarBackground-background
-	background: none !important
+	background-color: var(--spice-main) !important
+	background-image: none !important
 .main-entityHeader-backgroundColor
-	background: none !important
+	background-color: var(--spice-main) !important
+	background-image: none !important
 // ... now playing title
 .main-nowPlayingView-contextItemInfo:before
 	background: none !important

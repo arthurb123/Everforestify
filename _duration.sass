@@ -1,4 +1,4 @@
-// Playback / progress (updated for Spotify x-progressBar + layout)
+// Playback / progress
 
 // Elapsed / remaining: subtle until hover
 .playback-bar__progress-time-elapsed
@@ -63,3 +63,20 @@
 // Fix weird hover change on play button
 .Button-buttonPrimary-useBrowserDefaultFocusStyle-data-is-icon-only:hover > span
 	background-color: var(--spice-text) !important
+
+// Bottom bar: explicit play/pause colors (do not rely on Encore background tokens)
+.main-nowPlayingBar-container,
+.main-nowPlayingBar-nowPlayingBar
+	background-color: var(--spice-player) !important
+
+.main-playPauseButton-button
+	background-color: var(--spice-button-active) !important
+	color: var(--spice-player) !important
+
+.main-playPauseButton-button svg
+	color: inherit
+
+// Extra specificity over any Encore layout wrapper
+.Root__now-playing-bar .main-playPauseButton-button
+	background-color: var(--spice-button-active) !important
+	color: var(--spice-player) !important
