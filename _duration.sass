@@ -1,11 +1,6 @@
-// From the sleek theme
+// Playback / progress (updated for Spotify x-progressBar + layout)
 
-// Shift up when connect bar is visible
-.now-playing-bar-container > div:first-child:nth-last-child(2) .playback-bar,
-.main-nowPlayingBar-container > div:first-child:nth-last-child(2) .playback-bar
-	bottom: 107px
-
-// Hide and move progress time location
+// Elapsed / remaining: subtle until hover
 .playback-bar__progress-time-elapsed
 	opacity: 0
 	position: absolute
@@ -26,32 +21,44 @@
 	transition-duration: 0.15s
 	background-color: var(--spice-main)
 
-// Background color
+// Track background (legacy + current progress bar)
 .progress-bar
 	--bg-color: var(--spice-selected-row)
 
-// Show time on hover
+.x-progressBar-progressBarBg
+	background-color: var(--spice-selected-row) !important
+
+// Show timestamps on hover
 .playback-bar:hover .playback-bar__progress-time-elapsed,
 .playback-bar:hover .main-playbackBarRemainingTime-container
 	opacity: 1
 
-// Move bar
+// Keep bar in normal flow so it spans the full progress row (absolute + narrow
+// ancestor was shrinking the bar and misplacing time labels)
 .playback-bar
 	width: 100%
-	bottom: 80px 
-	position: absolute
+	position: relative
 
 .player-controls__buttons
 	transform: translateY(6px)
 	align-items: center
 
-// Change color
-.playback-bar .progress-bar__fg
-	background-color: var(--spice-playback-bar)
+// Filled portion (legacy class removed from map; x-* is current)
+.playback-bar .progress-bar__fg,
+.playback-bar .x-progressBar-fillColor,
+.playback-bar .x-progressBar-progressFillColor,
+.playback-bar .x-progressBar-foreground
+	background-color: var(--spice-playback-bar) !important
 
-// No button on hover
-.progress-bar__slider
-	display: none
+// Hide scrub handle until hover but keep interaction (display:none broke seeking)
+.progress-bar__slider,
+.x-progressBar-handle
+	opacity: 0
+	transition: opacity 0.15s
+
+.playback-bar:hover .progress-bar__slider,
+.playback-bar:hover .x-progressBar-handle
+	opacity: 1
 
 // Fix weird hover change on play button
 .Button-buttonPrimary-useBrowserDefaultFocusStyle-data-is-icon-only:hover > span
